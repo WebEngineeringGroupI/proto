@@ -7,7 +7,7 @@ option go_package = "github.com/WebEngineeringGroupI/genproto-go/api/v1alpha1;ge
 // A request of shortening a number of URLs
 message URLShortenerRequest {
   // The URLs to short
-  repeated string url = 1;
+  repeated string urls = 1;
 }
 
 // The response for shortening some URLs
@@ -19,7 +19,7 @@ message URLShortenerResponse {
     string long_url = 2;
   }
   // Result of each shortening
-  repeated Result result = 1;
+  repeated Result results = 1;
 }
 
 // Creates short URLs from long URLs
