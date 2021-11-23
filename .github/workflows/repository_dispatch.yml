@@ -20,3 +20,4 @@ jobs:
           token: ${{ secrets.REPOSITORY_DISPATCH_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: gen-proto
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
