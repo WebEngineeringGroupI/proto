@@ -1,0 +1,22 @@
+name: Repository Dispatch (Generate libraries)
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  dispatch:
+    strategy:
+      matrix:
+        repo:
+          - 'WebEngineeringGroupI/genproto-go'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPOSITORY_DISPATCH_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: gen-proto

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package webengineering.api.v1alpha1;
+
+option go_package = "github.com/WebEngineeringGroupI/genproto-go/api/v1alpha1;genproto";
+
+// A request of shortening a number of URLs
+message URLShortenerRequest {
+  // The URLs to short
+  repeated string url = 1;
+}
+
+// The response for shortening some URLs
+message URLShortenerResponse {
+  message Result {
+    // The short URL generated from the shortening
+    string short_url = 1;
+    // The original long URL from the shortening
+    string long_url = 2;
+  }
+  // Result of each shortening
+  repeated Result result = 1;
+}
+
+// Creates short URLs from long URLs
+service URLShortening {
+  // Creates short URLs from long URLs
+  rpc ShortURLs(URLShortenerRequest) returns (URLShortenerResponse) {}
+}
