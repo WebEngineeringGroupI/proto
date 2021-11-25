@@ -12,6 +12,7 @@ jobs:
       matrix:
         repo:
           - 'WebEngineeringGroupI/genproto-go'
+          - 'WebEngineeringGroupI/genproto-dart'
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
