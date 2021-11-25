@@ -12,11 +12,26 @@ message ShortURLsRequest {
 
 // The response for shortening some URLs
 message ShortURLsResponse {
-  // The short URL generated from the shortening
-  string short_url = 1;
-  // The original long URL from the shortening
-  string long_url = 2;
+  message Success {
+    // The short URL generated from the shortening
+    string short_url = 1;
+    // The original long URL from the shortening
+    string long_url = 2;
+  }
+  message Error {
+    // The original URL that generated the error
+    string url = 1;
+    // The error that happened while trying to shorten the URL
+    string error = 2;
+  }
 
+  // Result of each shortening
+  oneof result {
+    // Success on the URL shortening
+    Success success = 1;
+    // Error on the URL shortening
+    Error error = 2;
+  }
 }
 
 // Creates short URLs from long URLs
