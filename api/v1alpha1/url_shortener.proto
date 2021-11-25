@@ -12,14 +12,11 @@ message ShortURLsRequest {
 
 // The response for shortening some URLs
 message ShortURLsResponse {
-  message Result {
-    // The short URL generated from the shortening
-    string short_url = 1;
-    // The original long URL from the shortening
-    string long_url = 2;
-  }
-  // Result of each shortening
-  Result result = 1;
+  // The short URL generated from the shortening
+  string short_url = 1;
+  // The original long URL from the shortening
+  string long_url = 2;
+
 }
 
 // Creates short URLs from long URLs
