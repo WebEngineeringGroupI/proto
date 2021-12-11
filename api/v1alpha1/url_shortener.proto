@@ -10,8 +10,9 @@ message ShortURLsRequest {
   string url = 1;
 }
 
-message ShortURLsRequests {
-  repeated ShortURLsRequest urls = 1;
+//A request of balancing a number of URLs
+message BalanceURLsRequest {
+  repeated string urls = 1;
 }
 
 // The response for shortening some URLs
@@ -38,9 +39,20 @@ message ShortURLsResponse {
   }
 }
 
+message BalanceURLsResponse {
+  message Success {
+    // The short URL generated from the shortening
+    string short_url = 1;
+  }
+  message Error {
+    // The error that happened while trying to shorten the URL
+    string error = 1;
+  }
+}
+
 // Creates short URLs from long URLs
 service URLShortening {
   // Creates short URLs from long URLs
   rpc ShortURLs(stream ShortURLsRequest) returns (stream ShortURLsResponse) {}
-  rpc BalanceURLs(ShortURLsRequests) returns (ShortURLsResponse) {}
+  rpc BalanceURLs(BalanceURLsRequest) returns (BalanceURLsResponse) {}
 }
