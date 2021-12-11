@@ -10,6 +10,10 @@ message ShortURLsRequest {
   string url = 1;
 }
 
+message ShortURLsRequests {
+  repeated ShortURLsRequest urls = 1;
+}
+
 // The response for shortening some URLs
 message ShortURLsResponse {
   message Success {
@@ -38,4 +42,5 @@ message ShortURLsResponse {
 service URLShortening {
   // Creates short URLs from long URLs
   rpc ShortURLs(stream ShortURLsRequest) returns (stream ShortURLsResponse) {}
+  rpc BalanceURLs(ShortURLsRequests) returns (ShortURLsResponse) {}
 }
