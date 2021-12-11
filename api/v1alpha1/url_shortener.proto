@@ -40,13 +40,8 @@ message ShortURLsResponse {
 }
 
 message BalanceURLsResponse {
-  message Success {
     // The short URL generated from the shortening
     string short_url = 1;
-  }
-  message Error {
-    // The error that happened while trying to shorten the URL
-    string error = 1;
   }
 }
 
