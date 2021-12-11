@@ -42,7 +42,6 @@ message ShortURLsResponse {
 message BalanceURLsResponse {
     // The short URL generated from the shortening
     string short_url = 1;
-  }
 }
 
 // Creates short URLs from long URLs
