@@ -13,6 +13,7 @@ jobs:
         repo:
           - 'WebEngineeringGroupI/genproto-go'
           - 'WebEngineeringGroupI/genproto-dart'
+          - 'WebEngineeringGroupI/genproto-java'
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
